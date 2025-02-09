@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+
+.dark-mode{
+    --background-color: #0f0f0f;
+    --component-background-1: #0A0A0A;
+    --primary-color: #00684e;
+}
+
+.light-mode{
+    --background-color: #0A0A0A;
+    --component-background-1: #0A0A0A; 
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: white;
+    font-family: sans-serif;
+}
