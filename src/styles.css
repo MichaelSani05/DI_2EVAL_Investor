@@ -18,3 +18,24 @@ body{
     color: white;
     font-family: 'Poppins', sans-serif;
 }
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    margin: 40px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.router-link-active{
+    color: var(--primary-color);
+}
