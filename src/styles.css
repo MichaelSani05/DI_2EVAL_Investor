@@ -16,5 +16,5 @@ body{
     overflow-x: hidden;
     background-color: var(--background-color);
     color: white;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
