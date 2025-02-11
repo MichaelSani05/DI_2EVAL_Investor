@@ -9,4 +9,78 @@
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 999;
 }
+
+.header{
+    display: flex;
+}
+
+.header p{
+    width: fit-content;
+}
+
+.search-section{
+    position: relative;
+    height: fit-content;
+    margin: auto;
+}
+
+.search-bar {
+    margin: 0px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: var(--background-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  .loading {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+  }
+  
+  .error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+  }
+  
+  .results-list {
+    position: absolute;
+    list-style: none;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: scroll;    
+    border-radius: 10px;
+    background: var(--background-color);
+  }
+
+  .results-list::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .result-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .crypto-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .result-item span {
+    font-size: 14px;
+  }
