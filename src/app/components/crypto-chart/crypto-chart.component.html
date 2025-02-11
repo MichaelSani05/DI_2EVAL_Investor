@@ -1,1 +1,18 @@
-<p>crypto-chart works!</p>
+<div id="chart">
+    <button type="button" (click)="fetchCryptoData('bitcoin', '1h')">Última hora</button>
+    <button type="button" (click)="fetchCryptoData('bitcoin', '24h')">Último día</button>
+    <button type="button" (click)="fetchCryptoData('bitcoin', '7d')">Última semana</button>
+    <button type="button" (click)="fetchCryptoData('bitcoin', '30d')">Últimos 30 días</button>
+    <apx-chart 
+      [series]="chartOptions.series" 
+      [chart]="chartOptions.chart" 
+      [xaxis]="chartOptions.xaxis" 
+      [yaxis]="chartOptions.yaxis" 
+      [grid]="chartOptions.grid" 
+      [stroke]="chartOptions.stroke" 
+      [markers]="chartOptions.markers" 
+      [tooltip]="chartOptions.tooltip" 
+      [title]="chartOptions.title" 
+      [subtitle]="chartOptions.subtitle">
+    </apx-chart>
+  </div>

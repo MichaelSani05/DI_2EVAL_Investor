@@ -6,19 +6,21 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class CryptoService {
-  private apiKey = '6SCHVKJJJGKXV5MS';
-  private baseUrl = 'https://www.alphavantage.co/query';
+  private baseUrl = 'https://api.coingecko.com/api/v3';
 
   constructor(private http: HttpClient) {}
 
+  // Obtener datos históricos de una criptomoneda
   getCryptoDaily(symbol: string): Observable<any> {
-    const url = `${this.baseUrl}?function=DIGITAL_CURRENCY_DAILY&symbol=${symbol}&market=USD&apikey=${this.apiKey}`;
-    return this.http.get(url).pipe(
-      tap((response : any) => console.log('API Response:', response))
+    const url = `${this.baseUrl}/coins/${symbol}/market_chart`;
+    const params = { vs_currency: 'usd', days: '30' };
+    return this.http.get(url, { params }).pipe(
+      tap((response: any) => console.log('API Response:', response))
     );
   }
 
+  // Listar criptomonedas disponibles
   listCryptocurrencies(): string[] {
-    return ['BTC', 'ETH', 'LTC', 'XRP', 'DOGE'];
+    return ['bitcoin', 'ethereum', 'litecoin', 'ripple', 'dogecoin'];
   }
 }
