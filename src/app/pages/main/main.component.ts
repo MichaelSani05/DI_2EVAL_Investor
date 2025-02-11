@@ -9,5 +9,5 @@ import { CryptoChartComponent } from "../../components/crypto-chart/crypto-chart
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-
+  cryptoName: string = "bitcoin";
 }

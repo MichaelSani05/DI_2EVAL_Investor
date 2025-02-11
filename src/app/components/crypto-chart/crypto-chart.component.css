@@ -1,9 +1,42 @@
-.crypto-chart{
-    color: black;
+#chart{
+    position: relative;
+    color: white;
+    background-color: #0A0A0A;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 20px;
 }
 
 #chart button{
     position: relative;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    height: fit-content;
+}
+
+.chart-head{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.chart-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.chart-info img{
+    width: 50px;
+    height: fit-content;
+}
+
+.chart-buttons{
+    display: flex;
+    gap: 20px;
 }
 
 h2{

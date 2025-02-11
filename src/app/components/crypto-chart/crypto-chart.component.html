@@ -1,18 +1,25 @@
 <div id="chart">
-    <button type="button" (click)="fetchCryptoData('bitcoin', '1h')">Última hora</button>
-    <button type="button" (click)="fetchCryptoData('bitcoin', '24h')">Último día</button>
-    <button type="button" (click)="fetchCryptoData('bitcoin', '7d')">Última semana</button>
-    <button type="button" (click)="fetchCryptoData('bitcoin', '30d')">Últimos 30 días</button>
-    <apx-chart 
-      [series]="chartOptions.series" 
-      [chart]="chartOptions.chart" 
-      [xaxis]="chartOptions.xaxis" 
-      [yaxis]="chartOptions.yaxis" 
-      [grid]="chartOptions.grid" 
-      [stroke]="chartOptions.stroke" 
-      [markers]="chartOptions.markers" 
-      [tooltip]="chartOptions.tooltip" 
-      [title]="chartOptions.title" 
-      [subtitle]="chartOptions.subtitle">
-    </apx-chart>
+  <div class="chart-head">
+    <div class="chart-info">
+      <img src="{{currentCrypto.image.small}}" alt="">
+      <h3>{{currentCrypto.name}}</h3>
+    </div>
+    <div class="chart-buttons">
+      <button (click)="fetchCryptoData('bitcoin', '1d')">1 Day</button>
+      <button (click)="fetchCryptoData('bitcoin', '7d')">1 Week</button>
+      <button (click)="fetchCryptoData('bitcoin', '30d')">1 Month</button>
+    </div>
+    <p>{{currentCrypto.market_data.current_price.eur}} €</p>
+  </div>
+  <apx-chart
+    #chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [grid]="chartOptions.grid"
+    [stroke]="chartOptions.stroke"
+    [markers]="chartOptions.markers"
+    [tooltip]="chartOptions.tooltip"
+  ></apx-chart>
   </div>
