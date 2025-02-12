@@ -1,0 +1,8 @@
+#crypto-page-container{
+    margin: 100px 0px 0px 250px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 25px;
+    display: flex;
+    gap: 15px;
+}
