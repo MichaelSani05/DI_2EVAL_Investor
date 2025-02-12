@@ -60,17 +60,21 @@
         </div>
     </section>
     <section class="section-2">
-        <div class="transacciones">
+        <div class="transacciones component-2">
             <h2>Transacciones</h2>
             <div *ngIf="transactions.length > 0; else noTransactions">
               <div *ngFor="let transaction of transactions" class="transaction-card">
-                <p><strong>Tipo:</strong> {{ transaction.type }}</p>
-                <p><strong>Criptomoneda:</strong> {{ transaction.cryptoId }}</p>
-                <p><strong>Cantidad:</strong> {{ transaction.amount }}</p>
-                <p><strong>Precio:</strong> {{ transaction.price | currency }}</p>
-                <p><strong>Total:</strong> {{ transaction.total | currency }}</p>
-                <p><strong>Fecha:</strong> {{ transaction.date | date:'medium' }}</p>
-                <p><strong>Método de pago:</strong> {{ transaction.paymentMethod }}</p>
+                <img src="{{transaction.image}}" alt="" width="50">
+                <div class="transaction-info">
+                    <p>{{ transaction.cryptoId }}</p>
+                    <p>{{ transaction.date | date:'dd MMM' }}</p>
+                </div>
+                <div *ngIf="transaction.win == true">
+                    <p style="color: #01ff16;">+{{ transaction.total | currency }}</p>
+                </div>
+                <div *ngIf="transaction.win == false">
+                    <p style="color: #ff3401;">-{{ transaction.total | currency }}</p>
+                </div>
               </div>
             </div>
             <ng-template #noTransactions>

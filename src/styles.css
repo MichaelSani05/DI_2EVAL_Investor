@@ -43,6 +43,9 @@ a{
 .component-1{
     background: linear-gradient(90deg, rgba(15,15,15,1) 0%, rgba(2,60,44,0.2) 75%, rgba(4,120,87,0.5046393557422969) 100%);
 }
+.component-2{
+    background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(2,60,44,0.2) 75%, rgba(4,120,87,0.5046393557422969) 100%);
+}
 
 .button-1{
     padding: 8px 15px;

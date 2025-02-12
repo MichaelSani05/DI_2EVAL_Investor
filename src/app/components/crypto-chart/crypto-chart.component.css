@@ -1,7 +1,9 @@
 #chart{
     position: relative;
     color: white;
-    background-color: #0A0A0A;
+    backdrop-filter: blur(2px) saturate(181%);
+    -webkit-backdrop-filter: blur(2px) saturate(181%);
+    background-color: rgba(17, 25, 40, 0.70);
     box-sizing: border-box;
     padding: 25px;
     border-radius: 20px;
