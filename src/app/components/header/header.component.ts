@@ -5,12 +5,11 @@ import { FormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
-  providers: [CryptoService]
+    selector: 'app-header',
+    imports: [CommonModule, HttpClientModule, FormsModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css',
+    providers: [CryptoService]
 })
 export class HeaderComponent {
   searchTerm: string = '';

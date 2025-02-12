@@ -6,12 +6,12 @@ import { ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
 import {  ChartType, ApexStroke } from 'ng-apexcharts';
 
 @Component({
-  selector: 'app-crypto-chart',
-  templateUrl: './crypto-chart.component.html',
-  styleUrl: './crypto-chart.component.css',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, NgApexchartsModule],
-  providers: [CryptoService],
+    selector: 'app-crypto-chart',
+    standalone: true,
+    templateUrl: './crypto-chart.component.html',
+    styleUrl: './crypto-chart.component.css',
+    imports: [CommonModule, HttpClientModule, NgApexchartsModule],
+    providers: [CryptoService]
 })
 export class CryptoChartComponent implements OnInit {
   @Input() cryptoName? : string

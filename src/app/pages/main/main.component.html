@@ -2,59 +2,80 @@
     <div class="main-banner">
         <img src="../../../assets/images/main-banner.jpg" alt="">
     </div>
-    <div class="overall-portfolio component-1">
-        <div class="overall-head">
-            <h3>Overall portfolio</h3>
-            <div class="head-buttons">
-                <button class="button-1">Withdraw</button>
-                <button class="button-2">Deposit +</button>
+    <section class="section-1">
+        <div class="overall-portfolio component-1">
+            <div class="overall-head">
+                <h3>Overall portfolio</h3>
+                <div class="head-buttons">
+                    <button class="button-1">Withdraw</button>
+                    <button class="button-2">Deposit +</button>
+                </div>
+            </div>
+            <div class="portfolio-stats">
+                <div class="portfolio-stat">
+                    <div class="stat-head">
+                        <span>Balance</span>
+                        <span class="percentage">24%</span>
+                    </div>
+                    <div class="stat-money">
+                        42,069.00 $
+                    </div>
+                </div>
+                <div class="portfolio-stat">
+                    <div class="stat-head">
+                        <span>Balance</span>
+                        <span class="percentage">24%</span>
+                    </div>
+                    <div class="stat-money">
+                        42,069.00 $
+                    </div>
+                </div>
+                <div class="portfolio-stat">
+                    <div class="stat-head">
+                        <span>Balance</span>
+                        <span class="percentage">24%</span>
+                    </div>
+                    <div class="stat-money">
+                        42,069.00 $
+                    </div>
+                </div>
+                <div class="portfolio-stat">
+                    <div class="stat-head">
+                        <span>Balance</span>
+                        <span class="percentage">24%</span>
+                    </div>
+                    <div class="stat-money">
+                        42,069.00 $
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="portfolio-stats">
-            <div class="portfolio-stat">
-                <div class="stat-head">
-                    <span>Balance</span>
-                    <span class="percentage">24%</span>
-                </div>
-                <div class="stat-money">
-                    42,069.00 $
-                </div>
+        <div class="favorite-cryptos">
+            <div class="favorite-head">
+                <h2>Tus monedas favoritas</h2>
             </div>
-            <div class="portfolio-stat">
-                <div class="stat-head">
-                    <span>Balance</span>
-                    <span class="percentage">24%</span>
-                </div>
-                <div class="stat-money">
-                    42,069.00 $
-                </div>
-            </div>
-            <div class="portfolio-stat">
-                <div class="stat-head">
-                    <span>Balance</span>
-                    <span class="percentage">24%</span>
-                </div>
-                <div class="stat-money">
-                    42,069.00 $
-                </div>
-            </div>
-            <div class="portfolio-stat">
-                <div class="stat-head">
-                    <span>Balance</span>
-                    <span class="percentage">24%</span>
-                </div>
-                <div class="stat-money">
-                    42,069.00 $
-                </div>
+            <div class="favorite-crypto">
+                <app-crypto-chart [cryptoName]="cryptoName"/>
             </div>
         </div>
-    </div>
-    <div class="favorite-cryptos">
-        <div class="favorite-head">
-            <h2>Tus monedas favoritas</h2>
-        </div>
-        <div class="favorite-crypto">
-            <app-crypto-chart [cryptoName]="cryptoName"/>
-        </div>
-    </div>
+    </section>
+    <section class="section-2">
+        <div class="transacciones">
+            <h2>Transacciones</h2>
+            <div *ngIf="transactions.length > 0; else noTransactions">
+              <div *ngFor="let transaction of transactions" class="transaction-card">
+                <p><strong>Tipo:</strong> {{ transaction.type }}</p>
+                <p><strong>Criptomoneda:</strong> {{ transaction.cryptoId }}</p>
+                <p><strong>Cantidad:</strong> {{ transaction.amount }}</p>
+                <p><strong>Precio:</strong> {{ transaction.price | currency }}</p>
+                <p><strong>Total:</strong> {{ transaction.total | currency }}</p>
+                <p><strong>Fecha:</strong> {{ transaction.date | date:'medium' }}</p>
+                <p><strong>Método de pago:</strong> {{ transaction.paymentMethod }}</p>
+              </div>
+            </div>
+            <ng-template #noTransactions>
+              <p>No hay transacciones disponibles.</p>
+            </ng-template>
+          </div>          
+    </section>
 </div>

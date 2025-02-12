@@ -3,6 +3,16 @@
     position: relative;
     box-sizing: border-box;
     padding: 50px 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.section-1{
+    width: 80%;
+}
+
+.section-2{
+    width: 20%;
 }
 
 .main-banner{
@@ -88,4 +98,13 @@ h3{
 .favorite-cryptos{
     margin-top: 40px;
     position: relative;
+}
+
+.transacciones{
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: var(--component-background-1);
+    border-radius: 20px;
 }
