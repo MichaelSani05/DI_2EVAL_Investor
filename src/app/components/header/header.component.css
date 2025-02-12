@@ -14,6 +14,8 @@
 
 .header{
     display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .header p{
@@ -23,7 +25,7 @@
 .search-section{
     position: relative;
     height: fit-content;
-    margin: auto;
+    width: 30%;
 }
 
 .search-bar {
@@ -39,6 +41,7 @@
     border-radius: 5px;
     box-sizing: border-box;
     color: white;
+    width: 100%;
   }
   
   .loading {
@@ -83,4 +86,15 @@
   
   .result-item span {
     font-size: 14px;
+  }
+
+  .header-icons, .header-user{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .header-user svg{
+    width: 50px;
+    height: 50px;
   }

@@ -3,8 +3,7 @@ import { CryptoService } from '../../services/cryptos.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
-import { ApexChart, ChartType, ApexStroke, ApexTitleSubtitle } from 'ng-apexcharts';
-import { Title } from '@angular/platform-browser';
+import {  ChartType, ApexStroke } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-crypto-chart',
@@ -116,37 +115,34 @@ export class CryptoChartComponent implements OnInit {
   }
 
   fetchCryptoData(symbol: string, range: string) {
-    this.currentRange = range; // Actualiza el rango actual
-    let days: string = '1'; // Valor por defecto
-    let intervalMs: number; // Intervalo en milisegundos
+    this.currentRange = range;
+    let days: string = '1';
+    let intervalMs: number;
 
-    // Configurar el rango de días y el intervalo según el botón
     switch (range) {
       case '1d':
         days = '1';
-        intervalMs = 60 * 60 * 1000; // 1 hora en milisegundos
+        intervalMs = 60 * 60 * 1000;
         break;
       case '7d':
         days = '7';
-        intervalMs = 24 * 60 * 60 * 1000; // 1 día en milisegundos
+        intervalMs = 24 * 60 * 60 * 1000;
         break;
       case '30d':
         days = '30';
-        intervalMs = 24 * 60 * 60 * 1000; // 1 día en milisegundos
+        intervalMs = 24 * 60 * 60 * 1000;
         break;
       default:
         days = '1';
-        intervalMs = 60 * 60 * 1000; // 1 hora en milisegundos
+        intervalMs = 60 * 60 * 1000;
         break;
     }
 
-    // Llamar al servicio con el rango de días adecuado
     this.cryptoService.getCryptoDaily(symbol, days).subscribe(
       (response) => {
-        const firstTimestamp = response.prices[0][0]; // Primer timestamp
-        const lastTimestamp = response.prices[response.prices.length - 1][0]; // Último timestamp
+        const firstTimestamp = response.prices[0][0];
+        const lastTimestamp = response.prices[response.prices.length - 1][0];
 
-        // Filtrar los datos según el intervalo
         const prices = [];
         for (let timestamp = firstTimestamp; timestamp <= lastTimestamp; timestamp += intervalMs) {
           const closestEntry = response.prices.find((entry: any) => Math.abs(entry[0] - timestamp) < intervalMs / 2);
@@ -158,20 +154,17 @@ export class CryptoChartComponent implements OnInit {
           }
         }
 
-        // Formatear las categorías del eje X
         this.chartOptions.xaxis.categories = prices.map((p: { x: number }) => {
           const date = new Date(p.x);
           if (range === '1d') {
-            return `${date.getHours()}:00`; // Formato para 1 día (HH:00)
+            return `${date.getHours()}:00`;
           } else {
-            return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short' }); // Formato para 7 días y 30 días (DD Mon)
+            return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short' });
           }
         });
 
-        // Actualizar los datos del gráfico
         this.chartOptions.series[0].data = prices.map((p: { y: number }) => p.y);
 
-        // Forzar la actualización del gráfico
         this.chart.updateOptions({
           xaxis: {
             categories: this.chartOptions.xaxis.categories,
@@ -179,7 +172,7 @@ export class CryptoChartComponent implements OnInit {
           series: this.chartOptions.series,
         });
 
-        console.log('Chart Options:', this.chartOptions); // Inspecciona las opciones
+        console.log('Chart Options:', this.chartOptions);
       },
       (error) => {
         console.error('API Error:', error);
