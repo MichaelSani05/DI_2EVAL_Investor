@@ -44,3 +44,10 @@
 h2{
     color: white;
 }
+
+
+@media (max-width: 1200px) {
+    .chart-head{
+        flex-direction: column;
+    }
+}
