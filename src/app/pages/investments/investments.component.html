@@ -1,0 +1,30 @@
+<div id="investments-container">
+    <div class="main-banner">
+        <img src="../../../assets/images/main-banner.jpg" alt="">
+    </div>
+    <h2>Cryptos populares</h2>
+    <ul class="popular-cryptos">
+        <li *ngFor="let item of trendingCryptos" 
+            class="popular-crypto card-container" 
+            (mousemove)="onMouseMove($event)" 
+            (mouseleave)="onMouseLeave($event)">
+            <img [src]="item.item.large" alt="">
+            <div class="pop-info">
+              {{ item.item.name }}
+              <div class="pop-data">
+                <div>{{ item.item.data.price | number:'1.2-4' : 'es-ES' }}</div>
+                <div [ngClass]="{'text-green': item.item.data.price_change_percentage_24h.eur > 0, 'text-red': item.item.data.price_change_percentage_24h.eur < 0}">
+                  {{ item.item.data.price_change_percentage_24h.eur | number:'1.0-0' }}%
+                </div>
+              </div>
+            </div>
+        </li>
+    </ul>
+      
+    <ul>
+        <li *ngFor="let favorite of userFavorites">
+            
+        </li>
+    </ul>
+      
+</div>

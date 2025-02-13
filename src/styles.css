@@ -67,6 +67,15 @@ a{
     font-weight: bold;
 }
 
+.text-green{
+    color: #01ff16;
+}
+
+.text-red{
+    color: #ff3401;
+}
+
+
 @media (max-width: 700px){
     #menu{
       display: none;

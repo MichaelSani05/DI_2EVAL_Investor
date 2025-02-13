@@ -75,6 +75,12 @@
     align-items: center;
     padding: 20px 10px;
     border-bottom: 1px solid #eee;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .result-item:hover{
+    background-color: var(--primary-color);
   }
   
   .crypto-icon {

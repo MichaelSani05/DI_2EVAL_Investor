@@ -135,6 +135,7 @@ h3{
     margin: 0;
 }
 
+
 @media (max-width: 1150px) {
     #main-container{
         flex-direction: column;

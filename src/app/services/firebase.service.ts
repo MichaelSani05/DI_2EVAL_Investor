@@ -19,7 +19,6 @@ export class FirebaseService {
     );
   }
 
-  // Obtener un usuario específico por su ID
   getUserById(userId: string): Observable<any> {
     const dbRef = ref(this.db);
     return from(

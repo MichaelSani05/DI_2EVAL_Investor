@@ -48,4 +48,9 @@ export class CryptoService {
       })
     );
   }
+
+  getTrendingCryptos(): Observable<any> {
+    return this.http.get('https://api.coingecko.com/api/v3/search/trending');
+  }
+  
 }

@@ -1,0 +1,77 @@
+#investments-container{
+    margin: 100px 0px 0px 250px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+ul, h2{
+    position: relative;
+    margin: 0;
+}
+
+h2{
+    padding-left: 35px;
+}
+
+.popular-cryptos{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-height: 350px;
+    overflow-y: scroll;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popular-cryptos::-webkit-scrollbar{
+    display: none;
+}
+
+.popular-cryptos li{
+    padding: 20px;
+    max-height: 50px;
+    display: flex;
+    width: 250px !important;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    backdrop-filter: blur(2px) saturate(181%);
+    -webkit-backdrop-filter: blur(2px) saturate(181%);
+    background-color: rgba(17, 25, 40, 0.70);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s ease-out;
+    box-shadow: 2px 2px 4px black;
+}
+
+.popular-cryptos img{
+    height: 100%;
+}
+
+.pop-data{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.main-banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: 
+    linear-gradient(90deg, rgba(15,15,15,1) 0%, rgba(15,15,15,0.2) 75%, rgba(15,15,15,0) 100%), linear-gradient(180deg, rgba(15,15,15,0) 0%, rgba(15,15,15,0.5) 75%, rgba(15,15,15,1) 100%),
+    url('../../../assets/images/invest-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main-banner img{
+    width: 100%;
+    visibility: hidden;
+}

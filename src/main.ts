@@ -5,6 +5,10 @@ import { provideDatabase, getDatabase } from '@angular/fire/database'; // Import
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
 
 bootstrapApplication(AppComponent, {
   providers: [

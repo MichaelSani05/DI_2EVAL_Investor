@@ -15,37 +15,37 @@
                 <div class="portfolio-stat">
                     <div class="stat-head">
                         <span>Balance</span>
-                        <span class="percentage">24%</span>
+                        <span class="percentage text-green">+24%</span>
                     </div>
                     <div class="stat-money">
-                        42,069.00 $
+                        {{ user.balance | number:'1.2-2':'es-ES' }} $
                     </div>
                 </div>
                 <div class="portfolio-stat">
                     <div class="stat-head">
-                        <span>Balance</span>
-                        <span class="percentage">24%</span>
+                        <span>Investments</span>
+                        <span class="percentage text-green">12%</span>
                     </div>
                     <div class="stat-money">
-                        42,069.00 $
+                        {{user.investments | number:'1.2-2':'es-ES' }} $
                     </div>
                 </div>
                 <div class="portfolio-stat">
                     <div class="stat-head">
-                        <span>Balance</span>
-                        <span class="percentage">24%</span>
+                        <span>Total Gain</span>
+                        <span class="percentage text-green">+5%</span>
                     </div>
                     <div class="stat-money">
-                        42,069.00 $
+                        {{user.totalGain | number:'1.2-2':'es-ES'}} $
                     </div>
                 </div>
                 <div class="portfolio-stat">
                     <div class="stat-head">
-                        <span>Balance</span>
-                        <span class="percentage">24%</span>
+                        <span>Total Loss</span>
+                        <span class="percentage text-red">-8%</span>
                     </div>
                     <div class="stat-money">
-                        42,069.00 $
+                        {{user.totalLoss | number:'1.2-2':'es-ES'}} $
                     </div>
                 </div>
             </div>
