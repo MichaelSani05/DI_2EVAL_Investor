@@ -1,8 +1,10 @@
 
 .dark-mode{
     --background-color: #0f0f0f;
-    --component-background-1: #0A0A0A;
-    --primary-color: #00684e;
+    --component-background-1: #1a1a1a;
+    --primary-color: rgb(0, 104, 78);
+    --gradient-1: linear-gradient(180deg, rgb(14 14 14 / 94%) 0%, rgb(58 57 57 / 75%) 95%, rgb(79 79 79 / 80%) 100%);
+    --gradient-2: linear-gradient(90deg, rgb(14 14 14 / 94%) 0%, rgb(58 57 57 / 75%) 95%, rgb(79 79 79 / 80%) 100%);
 }
 
 .light-mode{

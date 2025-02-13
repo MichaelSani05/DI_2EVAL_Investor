@@ -1,0 +1,9 @@
+#chart{
+    color: black;
+    background: var(--gradient-1);
+    position: relative;
+    border-radius: 15px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    padding: 20px;
+}

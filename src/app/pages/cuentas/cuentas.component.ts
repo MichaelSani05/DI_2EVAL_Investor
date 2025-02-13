@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { CommonModule } from '@angular/common';
+import { GastosChartComponent } from "../../components/gastos-chart/gastos-chart.component";
 
 @Component({
   selector: 'app-cuentas',
-  imports: [CommonModule],
+  imports: [CommonModule, GastosChartComponent],
   templateUrl: './cuentas.component.html',
   styleUrl: './cuentas.component.css'
 })
