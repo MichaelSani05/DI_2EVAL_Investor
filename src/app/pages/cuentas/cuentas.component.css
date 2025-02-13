@@ -1,0 +1,116 @@
+#cuentas-container{
+    margin: 100px 0px 0px 250px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.section-1{
+    width: 75%;
+}
+
+.section-2{
+    width: 25%;
+    min-width: 400px;
+}
+
+.cards{
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px) saturate(100%);
+    -webkit-backdrop-filter: blur(2px) saturate(181%);
+    background-color: rgba(0, 104, 78, 0.40);
+}
+
+.cards-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+}
+
+.card-info{
+    background-color: rgb(1 54 41 / 80%);
+    z-index: 9;
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+span{
+    display: flex;
+}
+
+.credit-card {
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    width: calc(100% - 30px);
+    margin: auto;
+    transform: translateY(40px);
+  }
+  
+  /* Patrón de líneas diagonales */
+  .credit-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    z-index: 1;
+  }
+  
+  /* Efecto de reflejo */
+  .credit-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-30deg);
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+  }
+  
+  .credit-card:hover::after {
+    left: 100%;
+  }
+  
+  /* Simulación de chip */
+  .chip {
+    width: 50px;
+    height: 35px;
+    background: gold;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }

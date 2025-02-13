@@ -1,0 +1,26 @@
+<div id="cuentas-container">
+    <section class="section-1">
+
+    </section>
+    <section class="section-2">
+        <div class="cards">
+            <div class="cards-head">
+                <h3>My cards</h3>
+                <button class="button-2">
+                    +
+                </button>
+            </div>
+            <div *ngFor="let card of cards" class="card-container">
+                <div class="credit-card">
+                    <div class="chip"></div>
+                    <img src="../../../assets/images/master-card.png" alt="">
+                    <span>{{card.type}}</span>
+                </div>
+                <div class="card-info">
+                    <span>{{card.number}}</span>
+                    <span>{{card.expirationDate}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

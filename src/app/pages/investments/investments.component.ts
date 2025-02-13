@@ -3,10 +3,12 @@ import { CryptoService } from '../../services/cryptos.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FirebaseService } from '../../services/firebase.service';
+import { CryptoChartComponent } from "../../components/crypto-chart/crypto-chart.component";
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-investments',
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, CryptoChartComponent, RouterLink, RouterLinkActive],
   templateUrl: './investments.component.html',
   styleUrl: './investments.component.css',
   providers: [CryptoService]
@@ -31,6 +33,7 @@ export class InvestmentsComponent {
         console.log(this.userFavorites);
         if (this.userFavorites) {
           this.getCryptoInfo(this.userFavorites);
+          console.log(this.favoriteCryptos);
         } else{
           console.error("No hay nada")
         }
@@ -67,7 +70,7 @@ export class InvestmentsComponent {
   getCryptoInfo(symbols : Array<string>){
     symbols.forEach(element => {
       this.cryptoService.getCryptoInfo(element).subscribe(
-        response => this.favoriteCryptos.push(response)
+        response => this.favoriteCryptos.push(response.id)
         );
     });
   }
