@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CryptoChartComponent } from "../../components/crypto-chart/crypto-chart.component";
 import { FirebaseService } from '../../services/firebase.service';
 import { CommonModule } from '@angular/common';
+import { GastosChartComponent } from "../../components/gastos-chart/gastos-chart.component";
 
 @Component({
     selector: 'app-main',
-    imports: [CryptoChartComponent, CommonModule],
+    imports: [CryptoChartComponent, CommonModule, GastosChartComponent],
     templateUrl: './main.component.html',
     styleUrl: './main.component.css'
 })

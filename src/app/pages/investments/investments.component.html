@@ -23,7 +23,7 @@
     </ul>
       
     <ul>
-        <li *ngFor="let favorite of userFavorites">
+        <li *ngFor="let favorite of userFavorites" class="favorite">
             <app-crypto-chart [cryptoName]="favorite" />
         </li>
     </ul>

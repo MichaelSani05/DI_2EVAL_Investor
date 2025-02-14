@@ -26,7 +26,7 @@ h2{
     border-radius: 25px;
     backdrop-filter: blur(8px) saturate(100%);
     -webkit-backdrop-filter: blur(2px) saturate(181%);
-    background: var(--gradient-1);
+    background: var(--gradient-3);
 }
 
 .card-container{
@@ -38,9 +38,9 @@ h2{
 
 .cards-head{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid lightgrey;
 }
 
 .card-info{
@@ -54,8 +54,26 @@ h2{
   backdrop-filter: blur(10px);
 }
 
-span{
+.button-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.button-3:hover{
+  background-color: rgb(54, 54, 54);
+}
+
+.button-3 span{
     display: flex;
+    width: fit-content;
+}
+
+.head-2{
+  display: flex;
+  gap: 10px;
 }
 
 .credit-card {
@@ -123,7 +141,6 @@ span{
     transform: translateY(20px);
   }
   
-  /* Simulación de chip */
   .chip {
     width: 50px;
     height: 35px;
@@ -132,6 +149,10 @@ span{
     position: absolute;
     top: 15px;
     left: 15px;
+  }
+
+  .card-info span{
+    display: flex;
   }
 
   .statistics{
@@ -155,7 +176,7 @@ span{
     border-radius: 15px;
     box-sizing: border-box;
     padding: 25px;
-    background: var(--gradient-1);
+    background: var(--gradient-3);
     min-width: 250px;
     flex: 1;
   }
@@ -163,6 +184,7 @@ span{
   .statistic-head{
     margin-bottom: 30px;
     color: lightgrey;
+    display: flex;
   }
 
   .statistic-info{

@@ -1,9 +1,13 @@
 #chart{
     color: black;
-    background: var(--gradient-1);
+    background: var(--gradient-4);
     position: relative;
     border-radius: 15px;
     margin-top: 25px;
     box-sizing: border-box;
     padding: 20px;
+}
+
+.apexcharts-series > path{
+    fill: red !important;
 }

@@ -75,3 +75,7 @@ h2{
     width: 100%;
     visibility: hidden;
 }
+
+.favorite{
+    margin-bottom: 25px;
+}
