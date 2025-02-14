@@ -7,6 +7,7 @@ import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 registerLocaleData(localeEs);
 
@@ -14,6 +15,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // Inicializa Firebase
-    provideDatabase(() => getDatabase()), // Configura Realtime Database
+    provideDatabase(() => getDatabase()), provideAnimationsAsync(), // Configura Realtime Database
   ],
 }).catch((err) => console.error(err));

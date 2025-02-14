@@ -1,9 +1,15 @@
 <div id="chart">
   <h1 style="color: white;">Gastos de febrero</h1>
-    <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [xaxis]="chartOptions.xaxis"
-      [yaxis]="chartOptions.yaxis"
-    ></apx-chart>
-  </div>
+  <apx-chart 
+    [series]="chartOptions.series" 
+    [chart]="chartOptions.chart" 
+    [plotOptions]="chartOptions.plotOptions" 
+    [dataLabels]="chartOptions.dataLabels" 
+    [xaxis]="chartOptions.xaxis" 
+    [yaxis]="chartOptions.yaxis" 
+    [grid]="chartOptions.grid" 
+    [tooltip]="chartOptions.tooltip" 
+    [responsive]="chartOptions.responsive"
+    [colors]="chartOptions.colors">
+  </apx-chart>
+</div>

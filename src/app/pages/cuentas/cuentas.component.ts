@@ -2,15 +2,19 @@ import { Component } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { CommonModule } from '@angular/common';
 import { GastosChartComponent } from "../../components/gastos-chart/gastos-chart.component";
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule, ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-cuentas',
-  imports: [CommonModule, GastosChartComponent],
+  imports: [CommonModule, GastosChartComponent, MatCardModule, MatProgressSpinnerModule],
   templateUrl: './cuentas.component.html',
   styleUrl: './cuentas.component.css'
 })
 export class CuentasComponent {
-  cards : any
+  mode: ProgressSpinnerMode = 'determinate';
+  value: number = 75;
+  cards : any;
 
   constructor(private firebaseService: FirebaseService){}
 
@@ -22,7 +26,5 @@ export class CuentasComponent {
       }
     )
   }
-
-
 
 }

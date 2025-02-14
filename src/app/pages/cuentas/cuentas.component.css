@@ -60,10 +60,12 @@ h2{
   align-items: center;
   transition: 0.2s all ease-in-out;
   cursor: pointer;
+  background-color: rgb(26 26 26 / 75%);
+  backdrop-filter: blur(20px);
 }
 
 .button-3:hover{
-  background-color: rgb(54, 54, 54);
+  background-color: #00bc8d;
 }
 
 .button-3 span{
@@ -209,4 +211,61 @@ h2{
 .main-banner img{
     width: 100%;
     visibility: hidden;
+}
+
+.prestamos-gastos{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.prestamos, .gastos{
+  position: relative;
+  width: calc(50% - 10px);
+  flex: 1;
+  margin-top: 25px;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--gradient-3);
+  min-width: 450px;
+}
+
+.example-card{
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+.prestamo-percentage-number{
+  position: absolute;
+  top: 105px;
+  left: 70px;
+}
+
+@media (max-width: 1300px){
+  #cuentas-container{
+    flex-direction: column;
+  }
+
+  .section-1, .section-2{
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px){
+  .statistics-section{
+    min-width: 300px;
+  }
+
+  .prestamos, .gastos{
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 700px){
+  #cuentas-container{
+      margin: 100px 0px 0px 0px;
+  }
 }

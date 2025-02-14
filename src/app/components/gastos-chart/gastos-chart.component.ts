@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { FirebaseService } from '../../services/firebase.service';
-import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexYAxis, ApexPlotOptions, ApexDataLabels, ApexGrid, ApexTooltip, ApexResponsive, ApexFill } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexYAxis, ApexPlotOptions, ApexDataLabels, ApexGrid, ApexTooltip, ApexResponsive } from 'ng-apexcharts';
+import { Subscription } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -17,20 +18,20 @@ export type ChartOptions = {
   responsive: ApexResponsive[];
 };
 
-
 @Component({
   selector: 'app-gastos-chart',
   standalone: true,
   imports: [CommonModule, NgApexchartsModule],
   templateUrl: './gastos-chart.component.html',
-  styleUrl: './gastos-chart.component.css',
+  styleUrls: ['./gastos-chart.component.css'],
 })
-export class GastosChartComponent {
+export class GastosChartComponent implements OnInit, AfterViewInit, OnDestroy {
   public chartOptions: ChartOptions;
+  private subscription: Subscription | null = null;
 
   constructor(private firebaseService: FirebaseService) {
     this.chartOptions = {
-      series: [], // Inicializado como un array vacío
+      series: [],
       chart: {
         type: 'bar',
         height: 350,
@@ -59,17 +60,10 @@ export class GastosChartComponent {
           dataLabels: {
             position: 'top', // Posición de las etiquetas de datos
           },
-          colors: {
-            ranges: [{
-              from: 0,
-              to: 10000,
-              color: '#FF0000' // Color de las barras
-            }]
-          }
         },
       },
       colors: [
-        "#33b2df",
+        "#00bc8d", // Color rojo para las barras
       ],
       dataLabels: {
         enabled: true, // Habilita etiquetas de datos
@@ -77,7 +71,7 @@ export class GastosChartComponent {
         offsetY: -20, // Posición vertical de las etiquetas
         style: {
           fontSize: '12px',
-          colors: ['#000'], // Color del texto de las etiquetas
+          colors: ['#ffffff'], // Color del texto de las etiquetas
         },
       },
       xaxis: {
@@ -140,14 +134,17 @@ export class GastosChartComponent {
         },
       ],
     };
-    
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.chartOptions = { ...this.chartOptions }; // Fuerza la actualización
+    }, 100);
+  }
 
   ngOnInit(): void {
     const userId = 'user1';
-
-    this.firebaseService.getUserById(userId).subscribe((user: any) => {
+    this.subscription = this.firebaseService.getUserById(userId).subscribe((user: any) => {
       if (user && user.spendings) {
         const spendingData = this.mapSpendingData(user.spendings);
         this.updateChart(spendingData);
@@ -157,7 +154,6 @@ export class GastosChartComponent {
 
   mapSpendingData(spendings: { [key: string]: { amount: number, dia: number } }): number[] {
     const spendingData = new Array(30).fill(0);
-
     Object.values(spendings).forEach(spending => {
       const day = spending.dia;
       const amount = spending.amount;
@@ -165,7 +161,6 @@ export class GastosChartComponent {
         spendingData[day - 1] += amount;
       }
     });
-
     return spendingData;
   }
 
@@ -174,5 +169,11 @@ export class GastosChartComponent {
       name: 'Gastos',
       data: data
     }];
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

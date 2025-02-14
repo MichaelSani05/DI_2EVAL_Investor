@@ -39,14 +39,15 @@ export class CryptoChartComponent implements OnInit {
       },
       background: 'transparent',
     },
-    colors: ['#4CAF50'],
+    colors: ['#00684e'], // Color rojo para la línea
     stroke: {
       curve: 'smooth' as ApexStroke["curve"],
       width: 2,
+      colors: ['#00684e'], // Color rojo para el stroke
     },
     markers: {
       size: 3,
-      colors: ['#4CAF50'],
+      colors: ['#00684e'], // Color rojo para los marcadores
       strokeColors: '#fff',
       strokeWidth: 2,
       hover: {
