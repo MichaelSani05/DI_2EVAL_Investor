@@ -39,7 +39,6 @@
         </div>
         <div class="prestamos-gastos">
             <div class="prestamos">
-                <h2>Prestamo</h2>
                 <span class="prestamo-percentage-number">75 %</span>
                 <div class="prestamo-info">
                     <div class="prestamo-percentage">
@@ -54,12 +53,48 @@
                         </mat-card>
                     </div>
                     <div class="perstamo-collected">
-
+                        <h3>Préstamo del coche</h3>
+                        <div class="collected-total">
+                            <div class="collected">
+                                <span>Pagado</span>
+                                <span>1.125,00 €</span>
+                            </div>
+                            <div class="total">
+                                <span>Total</span>
+                                <span>1.500,00 €</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="gastos">
-
+            <div class="prestamos">
+                <span class="prestamo-percentage-number">75 %</span>
+                <div class="prestamo-info">
+                    <div class="prestamo-percentage">
+                        <mat-card class="example-card">
+                            <mat-card-content>
+                              <mat-progress-spinner
+                                class="example-margin custom-spinner"
+                                [mode]="mode"
+                                [value]="value">
+                              </mat-progress-spinner>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="perstamo-collected">
+                        <h3>Préstamo del coche</h3>
+                        <div class="collected-total">
+                            <div class="collected">
+                                <span>Pagado</span>
+                                <span>1.125,00 €</span>
+                            </div>
+                            <div class="total">
+                                <span>Total</span>
+                                <span>1.500,00 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <app-gastos-chart />
