@@ -1,5 +1,10 @@
 
 <div id="crypto-page-container">
-    <h1>{{ cryptoName }}</h1>
-    <app-crypto-chart *ngIf="cryptoName" [cryptoName]="cryptoName"/>
+    <div class="crypto-page-header">
+        <img src="../../../assets/images/crypto-page-header.png" alt="">
+        <p>Información en tiempo real de cualquier criptomoneda del mercado.</p>
+    </div>
+    <div class="crypto">
+        <app-crypto-chart *ngIf="cryptoName" [cryptoName]="cryptoName"/>
+    </div>
 </div>

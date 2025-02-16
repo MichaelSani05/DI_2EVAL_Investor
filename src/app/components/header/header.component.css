@@ -118,6 +118,11 @@
     right: 20px;
   }
 
+  .header-logo{
+    width: 175px;
+    display: none;
+  }
+
   #header-container::-webkit-scrollbar{
     display: none;
   }
@@ -184,4 +189,10 @@
     .menu-mobile{
       display: block;
     }
+
+    
+    .header-logo{
+      display: block;
+    }
+
   }

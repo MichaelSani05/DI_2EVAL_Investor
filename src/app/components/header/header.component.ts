@@ -19,6 +19,7 @@ export class HeaderComponent {
   searchResults: any[] = [];
   isLoading: boolean = false;
   error: string | null = null;
+  today : Date = new Date();
 
   private searchSubject = new Subject<string>();
 

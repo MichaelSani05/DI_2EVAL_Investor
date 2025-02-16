@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule, ProgressSpinnerMode } from '@angular/material
 export class CuentasComponent {
   mode: ProgressSpinnerMode = 'determinate';
   value: number = 75;
+  value2: number = 85;
   cards : any;
 
   constructor(private firebaseService: FirebaseService){}
