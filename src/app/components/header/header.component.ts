@@ -32,8 +32,8 @@ export class HeaderComponent {
     this.checkScreenSize();
 
     this.searchSubject.pipe(
-      debounceTime(400), // Espera 400ms después de la última tecla presionada
-      distinctUntilChanged() // Solo ejecuta si el valor cambia
+      debounceTime(400),
+      distinctUntilChanged()
     ).subscribe(term => {
       if (term.trim()) {
         this.fetchCryptocurrencies(term);
@@ -57,10 +57,9 @@ export class HeaderComponent {
   }
 
   onSearchChange() {
-    this.searchSubject.next(this.searchTerm); // Envía el término al Subject
+    this.searchSubject.next(this.searchTerm);
   }
 
-  // 🔹 Llama a la API para buscar criptomonedas
   fetchCryptocurrencies(query: string) {
     this.isLoading = true;
     this.error = null;
@@ -77,13 +76,12 @@ export class HeaderComponent {
     });
   }
 
-  // 🔹 Cuando el usuario selecciona una criptomoneda, se detiene la búsqueda
   selectCrypto(crypto: any) {
-    this.searchTerm = crypto.name; // Opcional: Mostrar la criptomoneda seleccionada en el input
-    this.searchResults = []; // Ocultar los resultados
+    this.searchTerm = crypto.name;
+    this.searchResults = [];
   }
 
   ngOnDestroy() {
-    this.searchSubject.complete(); // Limpiar la suscripción al destruir el componente
+    this.searchSubject.complete();
   }
 }
