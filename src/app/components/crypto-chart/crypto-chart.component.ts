@@ -39,15 +39,15 @@ export class CryptoChartComponent implements OnInit {
       },
       background: 'transparent',
     },
-    colors: ['#00684e'], // Color rojo para la línea
+    colors: ['#00684e'],
     stroke: {
       curve: 'smooth' as ApexStroke["curve"],
       width: 2,
-      colors: ['#00684e'], // Color rojo para el stroke
+      colors: ['#00684e'],
     },
     markers: {
       size: 3,
-      colors: ['#00684e'], // Color rojo para los marcadores
+      colors: ['#00684e'],
       strokeColors: '#fff',
       strokeWidth: 2,
       hover: {
@@ -55,7 +55,7 @@ export class CryptoChartComponent implements OnInit {
       },
     },
     xaxis: {
-      categories: [] as string[], // Categorías se llenarán dinámicamente
+      categories: [] as string[],
       labels: {
         style: {
           colors: '#ffffff',
@@ -90,7 +90,6 @@ export class CryptoChartComponent implements OnInit {
       theme: 'dark',
       x: {
         formatter: (val: any, { seriesIndex, dataPointIndex }: { seriesIndex: number, dataPointIndex: number }) => {
-          // Usa las categorías del eje X para el tooltip
           return this.chartOptions.xaxis.categories[dataPointIndex];
         },
       },
@@ -172,7 +171,6 @@ export class CryptoChartComponent implements OnInit {
           }
         }
   
-        // Actualización de las categorías del eje X y los datos del gráfico
         this.chartOptions.xaxis.categories = prices.map((p: { x: number }) => {
           const date = new Date(p.x);
           return range === '1d' 
@@ -182,7 +180,6 @@ export class CryptoChartComponent implements OnInit {
   
         this.chartOptions.series[0].data = prices.map((p: { y: number }) => p.y);
   
-        // Actualización de las opciones del gráfico
         if (this.chart) {
           this.chart.updateOptions({
             xaxis: {

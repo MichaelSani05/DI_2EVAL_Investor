@@ -7,11 +7,10 @@ import { from, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FirebaseService {
-  private db = inject(Database); // Inyección de dependencias para standalone
+  private db = inject(Database);
 
   constructor() {}
 
-  // Obtener todos los usuarios
   getUsers(): Observable<any[]> {
     const dbRef = ref(this.db, 'users');
     return from(
@@ -28,7 +27,6 @@ export class FirebaseService {
     );
   }
 
-  // Agregar o actualizar un usuario
   saveUser(userId: string, userData: any): Promise<void> {
     const dbRef = ref(this.db, `users/${userId}`);
     return set(dbRef, userData);
