@@ -18,7 +18,12 @@
                         <span class="percentage text-green">+24%</span>
                     </div>
                     <div class="stat-money">
-                        {{ user.balance | number:'1.2-2':'es-ES' }} $
+                        <ng-container *ngIf="isLoadingUser; else loadedBalance">
+                            <div class="skeleton-text"></div>
+                        </ng-container>
+                        <ng-template #loadedBalance>
+                            {{ user?.balance | currency:'USD':'symbol':'1.2-2' }}
+                        </ng-template>
                     </div>
                 </div>
                 <div class="portfolio-stat">
@@ -27,7 +32,12 @@
                         <span class="percentage text-green">12%</span>
                     </div>
                     <div class="stat-money">
-                        {{user.investments | number:'1.2-2':'es-ES' }} $
+                        <ng-container *ngIf="isLoadingUser; else loadedInvestments">
+                            <div class="skeleton-text"></div>
+                        </ng-container>
+                        <ng-template #loadedInvestments>
+                            {{ user?.investments | currency:'USD':'symbol':'1.2-2' }}
+                        </ng-template>
                     </div>
                 </div>
                 <div class="portfolio-stat">
@@ -36,7 +46,12 @@
                         <span class="percentage text-green">+5%</span>
                     </div>
                     <div class="stat-money">
-                        {{user.totalGain | number:'1.2-2':'es-ES'}} $
+                        <ng-container *ngIf="isLoadingUser; else loadedGain">
+                            <div class="skeleton-text"></div>
+                        </ng-container>
+                        <ng-template #loadedGain>
+                            {{ user?.totalGain | currency:'USD':'symbol':'1.2-2' }}
+                        </ng-template>
                     </div>
                 </div>
                 <div class="portfolio-stat">
@@ -45,7 +60,12 @@
                         <span class="percentage text-red">-8%</span>
                     </div>
                     <div class="stat-money">
-                        {{user.totalLoss | number:'1.2-2':'es-ES'}} $
+                        <ng-container *ngIf="isLoadingUser; else loadedLoss">
+                            <div class="skeleton-text"></div>
+                        </ng-container>
+                        <ng-template #loadedLoss>
+                            {{ user?.totalLoss | currency:'USD':'symbol':'1.2-2' }}
+                        </ng-template>
                     </div>
                 </div>
             </div>
@@ -65,24 +85,39 @@
     <section class="section-2">
         <div class="transacciones component-2">
             <h2>Transacciones</h2>
-            <div *ngIf="transactions.length > 0; else noTransactions">
-              <div *ngFor="let transaction of transactions" class="transaction-card">
-                <img src="{{transaction.image}}" alt="" width="50">
-                <div class="transaction-info">
-                    <p>{{ transaction.cryptoId }}</p>
-                    <p>{{ transaction.date | date:'dd MMM' }}</p>
+            <ng-container *ngIf="isLoadingTransactions">
+                <div class="transaction-card" *ngFor="let i of [1,2,3]">
+                    <div class="skeleton-img"></div>
+                    <div class="transaction-info">
+                        <div class="skeleton-text sm"></div>
+                        <div class="skeleton-text xs mt-2"></div>
+                    </div>
                 </div>
-                <div *ngIf="transaction.win == true">
-                    <p style="color: #01ff16;">+{{ transaction.total | currency }}</p>
+            </ng-container>
+            
+            <ng-container *ngIf="!isLoadingTransactions">
+                <div *ngIf="transactions.length > 0; else noTransactions">
+                  <div *ngFor="let transaction of transactions" class="transaction-card">
+                    <img src="{{transaction.image}}" alt="" width="50">
+                    <div class="transaction-info">
+                        <p>{{ transaction.cryptoId }}</p>
+                        <p>{{ transaction.date | date:'dd MMM' }}</p>
+                    </div>
+                    <div *ngIf="transaction.win == true">
+                        <p class="text-green">+{{ transaction.total | currency }}</p>
+                    </div>
+                    <div *ngIf="transaction.win == false">
+                        <p class="text-red">-{{ transaction.total | currency }}</p>
+                    </div>
+                  </div>
                 </div>
-                <div *ngIf="transaction.win == false">
-                    <p style="color: #ff3401;">-{{ transaction.total | currency }}</p>
-                </div>
-              </div>
-            </div>
-            <ng-template #noTransactions>
-              <p>No hay transacciones disponibles.</p>
-            </ng-template>
+                <ng-template #noTransactions>
+                  <div class="empty-state">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="empty-icon"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                      <p>Aún no tienes transacciones.<br>¡Realiza tu primera inversión!</p>
+                  </div>
+                </ng-template>
+            </ng-container>
           </div>          
     </section>
 </div>

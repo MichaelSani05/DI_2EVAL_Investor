@@ -34,10 +34,12 @@
 }
 
 .overall-portfolio{
-    backdrop-filter: blur(2px) saturate(181%);
-    -webkit-backdrop-filter: blur(2px) saturate(181%);
-    background-color: rgba(17, 25, 40, 0.70);
-    border-radius: 12px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.60);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
     position: relative;
     box-sizing: border-box;
     padding: 25px 40px;
@@ -111,18 +113,27 @@ h3{
     padding: 20px;
     background: var(--gradient-3);
     border-radius: 20px;
-    backdrop-filter: blur(2px) saturate(181%);
-    -webkit-backdrop-filter: blur(2px) saturate(181%);
-    background-color: rgba(17, 25, 40, 0.70);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.60);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     min-width: 250px;
 }
 
 .transaction-card{
-    margin: 25px 0px;
+    margin: 15px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 5px;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.transaction-card:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .transaction-info{
@@ -135,6 +146,52 @@ h3{
     margin: 0;
 }
 
+
+/* Skeletons */
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton-text {
+    height: 24px;
+    width: 100px;
+    background: #2a2a2a;
+    background-image: linear-gradient(90deg, #2a2a2a 0px, #3a3a3a 40px, #2a2a2a 80px);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+.skeleton-text.sm { width: 60px; height: 16px; }
+.skeleton-text.xs { width: 40px; height: 14px; margin-top: 5px; }
+
+.skeleton-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    background-image: linear-gradient(90deg, #2a2a2a 0px, #3a3a3a 40px, #2a2a2a 80px);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #888888;
+}
+
+.empty-icon {
+    color: var(--primary-color, #00bc8d);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
 
 @media (max-width: 1150px) {
     #main-container{
